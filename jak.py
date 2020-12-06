@@ -44,16 +44,16 @@ class JakonizatorMod(loader.Module):
 		font = truetype(font, title)
 		draw = ImageDraw.Draw(im)
 		para = wrap(text, width=count)
-		corrent_h = h
+		current_h = h
 		for line in para:
 			w, h = draw.textsize(line, font=font)
 			draw.text(
-				((335 - w) / 2, corrent_h), 
+				((335 - w) / 2, current_h), 
 				line, 
 				font=font, 
 				fill="black"
 				)
-			corrent_h += h
+			current_h += h
 		out = BytesIO()
 		out.name = "jakonizator.jpg"
 		im.save(out, "JPEG", quality=100)
