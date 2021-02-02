@@ -28,8 +28,8 @@ class DemotivatorMod(loader.Module):
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
 
-        if len(args) > 100:
-        	return await message.edit("<b>бот принимет текст длинной до 100 символов</b>")
+        if len(args) > 200:
+        	return await message.edit("<b>бот принимает текст длинной до 200 символов</b>")
 
         chat = "IvIy_bot"
         await message.edit("<b>демотивирую...</b>")
@@ -44,7 +44,7 @@ class DemotivatorMod(loader.Module):
                 return await message.edit(f'<b>Разблокируй @{chat}</b>')
 
             except (TimeoutError, CancelledError):
-            	return await message.edit("<b>бот не ответил => @krabodyan ебанище</b>")
+            	return await message.edit("<b>бот не ответил => @krabodyan ебланище</b>")
             
             await self.client.send_file(message.to_id, response.media, reply_to=reply)
             await message.delete()
