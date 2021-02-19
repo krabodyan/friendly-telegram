@@ -24,7 +24,7 @@ class DemotivatorMod(loader.Module):
         if not reply or not reply.photo:
         	return await message.edit("<b>нужен реплай на фотку!</b>")
 
-        args = utils.get_args_raw(message)
+        args = utils.get_args_raw(message) or reply.message
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
 
