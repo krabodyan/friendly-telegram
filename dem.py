@@ -28,7 +28,7 @@ class DemotivatorMod(loader.Module):
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
 
-        if len(args) > 200:
+        if len(args) > 300:
         	return await message.edit("<b>бот принимает текст длинной до 200 символов</b>")
 
         chat = "IvIy_bot"
