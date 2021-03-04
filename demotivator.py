@@ -46,10 +46,8 @@ class DemotivatorMod(loader.Module):
                 await msg.reply(f"/demoti {args}")
                 response = await response
                 if not response.media:
-                	response = conv.wait_event(NewMessage(incoming=True, from_users=chat))
-                	response = await response
+                	response = await conv.wait_event(NewMessage(incoming=True, from_users=chat))
                 
-
             except YouBlockedUserError:
                 return await message.edit(f'<b>Разблокируй @{chat}</b>')
 
