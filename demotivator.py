@@ -27,7 +27,7 @@ class DemotivatorMod(loader.Module):
         	]):
         	return await message.edit("<b>нужен реплай на фотку/видео/стикер!</b>")
         if reply.file.size / 1024 / 1024 > 4:
-        	return await message.edit("<b>бот принимает видео до 1 мб (но можно скинуть бабла автору бота на сервер и будет до 5)</b>")
+        	return await message.edit("<b>бот принимает видео до 4 мб (но можно скинуть бабла автору бота на сервер и будет до 5)</b>")
 
 
         args = utils.get_args_raw(message) or reply.message
