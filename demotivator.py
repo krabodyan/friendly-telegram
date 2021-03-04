@@ -39,7 +39,7 @@ class DemotivatorMod(loader.Module):
 
         chat = "IvIy_bot"
         await message.edit("<b>демотивирую...</b>")
-        async with self.client.conversation(chat, timeout=30) as conv:
+        async with self.client.conversation(chat, timeout=120) as conv:
             try:
                 response = conv.wait_event(NewMessage(incoming=True, from_users=chat))
                 msg = await message.client.send_file(chat, reply.media)
