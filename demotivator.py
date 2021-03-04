@@ -25,7 +25,7 @@ class DemotivatorMod(loader.Module):
         	True for _ in ('sticker', 'photo', 'video')
         	if getattr(reply, _, None) is not None
         	]):
-        	return await message.edit("<b>нужен реплай на фотку!</b>")
+        	return await message.edit("<b>нужен реплай на фотку/видео/стикер!</b>")
         if reply.file.size / 1024 / 1024 > 1:
         	return await message.edit("<b>бот принимает видео до 1 мб (но можно скинуть бабла автору бота на сервер и будет до 5)</b>")
 
