@@ -26,7 +26,7 @@ class DemotivatorMod(loader.Module):
         	if getattr(reply, _, None) is not None
         	]):
         	return await message.edit("<b>нужен реплай на фотку/видео/стикер!</b>")
-        if reply.file.size / 1024 / 1024 > 1:
+        if reply.file.size / 1024 / 1024 > 4:
         	return await message.edit("<b>бот принимает видео до 1 мб (но можно скинуть бабла автору бота на сервер и будет до 5)</b>")
 
 
@@ -34,8 +34,8 @@ class DemotivatorMod(loader.Module):
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
 
-        if len(args) > 300:
-        	return await message.edit("<b>бот принимает текст длинной до 200 символов</b>")
+        if len(args) > 150:
+        	return await message.edit("<b>бот принимает текст длинной до 150 символов</b>")
 
         chat = "IvIy_bot"
         await message.edit("<b>демотивирую...</b>")
