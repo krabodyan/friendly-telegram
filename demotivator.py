@@ -7,6 +7,9 @@ from .. import loader, utils
 
 def register(cb):
 	cb(DemotivatorMod())
+	
+
+CHAT = "IvIy_bot"
 
 
 class DemotivatorMod(loader.Module):
@@ -30,24 +33,21 @@ class DemotivatorMod(loader.Module):
         	return await message.edit("<b>нужен реплай на фотку/видео/стикер!</b>")
         if reply.file.size / 1024 / 1024 > 4:
         	return await message.edit("<b>бот принимает видео до 4 мб (но можно скинуть 200 руб автору бота и будет до 5)</b>")
-
         args = utils.get_args_raw(message) or reply.message
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
-
         if len(args) > 150:
         	return await message.edit("<b>бот принимает текст длинной до 150 символов</b>")
 
-        chat = "IvIy_bot"
         await message.edit("<b>демотивирую...</b>")
-        async with self.client.conversation(chat, timeout=160) as conv:
+        async with self.client.conversation(CHAT, timeout=160) as conv:
             try:
-                response = conv.wait_event(NewMessage(incoming=True, from_users=chat))
+                response = conv.wait_event(NewMessage(incoming=True, from_users=CHAT))
                 msg = await reply.forward_to(chat)
                 await msg.reply(f"/demoti {args}")
                 response = await response
                 if not response.media:
-                	response = await conv.wait_event(NewMessage(incoming=True, from_users=chat))
+                	response = await conv.wait_event(NewMessage(incoming=True, from_users=CHAT))
                 
             except YouBlockedUserError:
                 return await message.edit(f'<b>Разблокируй @{chat}</b>')
