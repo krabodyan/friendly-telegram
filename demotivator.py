@@ -43,14 +43,14 @@ class DemotivatorMod(loader.Module):
         async with self.client.conversation(CHAT, timeout=160) as conv:
             try:
                 response = conv.wait_event(NewMessage(incoming=True, from_users=CHAT))
-                msg = await reply.forward_to(chat)
+                msg = await reply.forward_to(CHAT)
                 await msg.reply(f"/demoti {args}")
                 response = await response
                 if not response.media:
                 	response = await conv.wait_event(NewMessage(incoming=True, from_users=CHAT))
                 
             except YouBlockedUserError:
-                return await message.edit(f'<b>Разблокируй @{chat}</b>')
+                return await message.edit(f'<b>Разблокируй @{CHAT}</b>')
 
             except (TimeoutError, CancelledError):
             	return await message.edit("<b>бот не ответил => @krabodyan ебланище</b>")
