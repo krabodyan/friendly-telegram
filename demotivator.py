@@ -37,8 +37,8 @@ class DemotivatorMod(loader.Module):
         args = utils.get_args_raw(message) or reply.message
         if not args:
         	return await message.edit('<b>укажи аргументы после команды...</b>')
-        if len(args) > 150:
-        	return await message.edit("<b>бот принимает текст длинной до 150 символов</b>")
+        if len(args) > 500:
+        	return await message.edit("<b>бот принимает текст длинной до 500 символов</b>")
 
         await message.edit("<b>демотивирую...</b>")
         async with self.client.conversation(CHAT, timeout=160) as conv:
