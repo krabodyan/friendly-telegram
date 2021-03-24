@@ -1,5 +1,6 @@
-# D4n1l3k300 ablan
+# D4n1l3k300 eblan
 # t.me/D4n13l3k00 eblan
+# krabodyan geniy
 # requires: pydub numpy aiohttp
 import io
 import math
